@@ -1,5 +1,13 @@
 # Android快速开发框架说明
 
+### 使用的开源框架
+
+### [Logger](https://github.com/orhanobut/logger)
+Simple, pretty and powerful logger for android。
+文档参考github说明文档。
+
+***
+
 ### 资源文件 Resources
 
 
@@ -159,3 +167,21 @@
 	
 布局时在写 margins 和 paddings 时，你应该使用`spacing_****`尺寸格式来布局，而不是像对待String字符串一样直接写值。
 这样写会非常有感觉，会使组织和改变风格或布局是非常容易。
+
+***
+### 用tools
+```xml
+xmlns:tools="http://schemas.android.com/tools"
+```
+tools可以告诉Android Studio，哪些属性在运行的时候是被忽略的，只在设计布局的时候有效。比如我们要让android:text属性只在布局预览中有效可以这样.
+```xml
+<TextView
+ android:id="@+id/text_main"
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:textAppearance="@style/TextAppearance.Title"
+ android:layout_margin="@dimen/main_margin"
+ tools:text="I am a title" />
+```
+tools可以覆盖android的所有标准属性，将android:换成tools:即可。同时在运行的时候就连tools:本身都是被忽略的，不会被带进apk中。
+

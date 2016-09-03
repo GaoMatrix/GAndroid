@@ -1,4 +1,4 @@
-package com.gao.android.activitie;
+package com.gao.android.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
