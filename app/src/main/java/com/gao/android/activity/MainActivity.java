@@ -41,10 +41,11 @@ public class MainActivity extends BaseActivity {
             case R.id.glide:
                 startActivity(new Intent(this, GlidActivity.class));
                 break;
-            case R.id.retrofit:
-                break;
             case R.id.logger:
                 startActivity(new Intent(this, LoggerActivity.class));
+                break;
+            case R.id.retrofit:
+                startActivity(new Intent(this, RetrofitActivity.class));
                 break;
         }
     }

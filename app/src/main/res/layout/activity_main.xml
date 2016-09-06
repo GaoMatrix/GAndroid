@@ -18,16 +18,16 @@
         android:text="Glide Test" />
 
     <Button
-        android:id="@+id/retrofit"
-        android:gravity="center"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Retrofit Test" />
-
-    <Button
         android:id="@+id/logger"
         android:gravity="center"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Logger Test" />
+
+    <Button
+        android:id="@+id/retrofit"
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Retrofit Test" />
 </LinearLayout>

@@ -13,7 +13,7 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        sContext = getApplicationContext();
+        mContext = getApplicationContext();
         Thread.setDefaultUncaughtExceptionHandler(CrashHandler.getInstance());
         // Logger配置信息
         AppConfig.initLogger();
@@ -25,6 +25,6 @@ public class BaseApplication extends Application {
     }
 
     public Context getContext() {
-        return sApplicationContext;
+        return mContext;
     }
 }

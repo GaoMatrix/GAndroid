@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".activity.GlidActivity"></activity>
         <activity android:name=".activity.LoggerActivity"></activity>
+        <activity android:name=".activity.RetrofitActivity"></activity>
 
         <meta-data
             android:name="com.gao.android.config.SimpleGlideModule"
