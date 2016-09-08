@@ -4,10 +4,10 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/getContributors"
+        android:id="@+id/Top250Movie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="get Contributors"
+        android:text="Top250Movie"
         />
 
 </LinearLayout>

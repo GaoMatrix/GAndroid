@@ -3,7 +3,7 @@ package com.gao.android.model;
 /**
  * Created by GaoMatrix on 2016/9/6.
  */
-public class Result<T> {
+public class HttpResultStander<T> {
     public int code;
     public String msg;
     public T data;
@@ -12,7 +12,7 @@ public class Result<T> {
 
     @Override
     public String toString() {
-        return "Result{" +
+        return "HttpResultStander{" +
                 "code=" + code +
                 ", msg='" + msg + '\'' +
                 ", data=" + data +
