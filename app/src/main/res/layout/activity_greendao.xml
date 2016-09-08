@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/insertUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Insert User"/>
+    <Button
+        android:id="@+id/insertUserList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Insert UserList"/>
+    <Button
+        android:id="@+id/deleteUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete User"/>
+    <Button
+        android:id="@+id/updateUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update User"/>
+    <Button
+        android:id="@+id/queryUserList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Query User List"/>
+    <Button
+        android:id="@+id/queryUserListByAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Query User List By Age"/>
+</LinearLayout>

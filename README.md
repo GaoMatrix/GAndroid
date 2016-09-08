@@ -189,3 +189,7 @@ tools可以告诉Android Studio，哪些属性在运行的时候是被忽略的�
 ```
 tools可以覆盖android的所有标准属性，将android:换成tools:即可。同时在运行的时候就连tools:本身都是被忽略的，不会被带进apk中。
 
+***
+
+将BaseActivity中的initView和initData暂时注释掉，使用butterknife后initView不在需要，为了代码的简洁initData后期需要加上。
+
