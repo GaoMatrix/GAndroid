@@ -168,6 +168,10 @@ Simple, pretty and powerful logger for android。
 布局时在写 margins 和 paddings 时，你应该使用`spacing_****`尺寸格式来布局，而不是像对待String字符串一样直接写值。
 这样写会非常有感觉，会使组织和改变风格或布局是非常容易。
 
+Activity对应的布局文件的命名都是以activity开头，例如activity_main。
+ListView对应的item的布局文件都是以item开头，例如activity_main对应的listview的item的布局item_main。
+
+
 ***
 ### 用tools
 ```xml

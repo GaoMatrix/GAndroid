@@ -17,6 +17,8 @@ public class MainActivity extends BaseActivity {
     Button glide;
     @BindView(R.id.retrofit)
     Button retrofit;
+    @BindView(R.id.adapter)
+    Button adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,17 +27,7 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @Override
-    public void initView() {
-
-    }
-
-    @Override
-    public void initData() {
-
-    }
-
-    @OnClick({R.id.glide, R.id.retrofit, R.id.logger})
+    @OnClick({R.id.glide, R.id.retrofit, R.id.logger, R.id.adapter})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.glide:
@@ -46,6 +38,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.retrofit:
                 startActivity(new Intent(this, RetrofitActivity.class));
+                break;
+            case R.id.adapter:
+                startActivity(new Intent(this, AdapterActivity.class));
                 break;
         }
     }

@@ -31,15 +31,6 @@ public class GlidActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @Override
-    public void initView() {
-    }
-
-    @Override
-    public void initData() {
-
-    }
-
     @OnClick(R.id.getView)
     public void onClick() {
         Glide.with(this).

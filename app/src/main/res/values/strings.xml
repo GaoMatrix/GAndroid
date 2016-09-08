@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GAndroid</string>
+    <string name="title_activity_adapter">AdapterActivity</string>
 </resources>

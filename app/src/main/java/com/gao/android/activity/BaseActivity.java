@@ -11,16 +11,16 @@ public abstract class BaseActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // for subclass
-        initView();
+        // initView();
         // for subclass
-        initData();
+        // initData();
         // add Activity to Activity Stack
         ActivityManagerUtils.getInstance().addActivity(this);
     }
 
-    public abstract void initView();
-
-    public abstract void initData();
+//    public abstract void initView();
+//
+//    public abstract void initData();
 
     @Override
     protected void onDestroy() {

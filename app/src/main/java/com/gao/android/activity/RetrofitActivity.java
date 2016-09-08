@@ -31,14 +31,9 @@ public class RetrofitActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit);
         ButterKnife.bind(this);
+        initData();
     }
 
-    @Override
-    public void initView() {
-
-    }
-
-    @Override
     public void initData() {
         mGetTopMovieOnNext = new SubscriberOnNextListener<List<Subject>>() {
             @Override

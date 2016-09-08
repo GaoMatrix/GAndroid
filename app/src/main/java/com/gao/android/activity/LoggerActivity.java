@@ -26,16 +26,6 @@ public class LoggerActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @Override
-    public void initView() {
-
-    }
-
-    @Override
-    public void initData() {
-
-    }
-
     @OnClick(R.id.logger)
     public void onClick() {
         Logger.d("onClick");
