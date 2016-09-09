@@ -76,7 +76,6 @@ public class GreenDaoActivity extends BaseActivity {
             case R.id.queryUserList:
                 List<User> users = queryUserList();
                 for (User user : users) {
-                    Logger.init().hideThreadInfo().methodCount(0);
                     Logger.d(user.toString());
                 }
                 break;

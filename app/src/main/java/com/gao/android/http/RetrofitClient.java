@@ -1,5 +1,6 @@
 package com.gao.android.http;
 
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.gao.android.exception.ApiException;
 import com.gao.android.model.HttpResult;
 import com.gao.android.model.Subject;
@@ -43,6 +44,7 @@ public class RetrofitClient {
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             //设置 Debug Log 模式
             builder.addInterceptor(loggingInterceptor);
+            builder.addNetworkInterceptor(new StethoInterceptor());
         // }
         mRetrofit = new Retrofit.Builder()
                 .client(builder.build())

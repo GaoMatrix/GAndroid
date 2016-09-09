@@ -6,6 +6,8 @@
 Simple, pretty and powerful logger for android。
 文档参考github说明文档。
 
+### 使用Facebook的[stetho](https://github.com/facebook/stetho)进行网络和数据库的分析。
+
 ***
 
 ### 资源文件 Resources
@@ -192,4 +194,6 @@ tools可以覆盖android的所有标准属性，将android:换成tools:即可。
 ***
 
 将BaseActivity中的initView和initData暂时注释掉，使用butterknife后initView不在需要，为了代码的简洁initData后期需要加上。
+
+
 
