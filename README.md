@@ -1,17 +1,65 @@
 # Android快速开发框架说明
 
-### 使用的开源框架
+
+## 使用的开源框架
+
+### [Butter Knife](https://github.com/JakeWharton/butterknife)
+Bind Android views and callbacks to fields and methods. 
+结合AndroidStudio的插件**[android-butterknife-zelezny](https://github.com/avast/android-butterknife-zelezny)**
 
 ### [Logger](https://github.com/orhanobut/logger)
 Simple, pretty and powerful logger for android。
 文档参考github说明文档。
 
-### 使用Facebook的[stetho](https://github.com/facebook/stetho)进行网络和数据库的分析。
+### [stetho](https://github.com/facebook/stetho)
+使用Facebook的进行网络和数据库的分析。
 
-***
+### [Retrofit](http://square.github.io/retrofit/)
+Type-safe HTTP client for Android and Java by Square, Inc.
+
+### [RxJava](https://github.com/ReactiveX/RxJava)
+RxJava – Reactive Extensions for the JVM – a library for composing asynchronous and event-based programs using observable sequences for the Java VM.
+
+### [GreenDAO](https://github.com/greenrobot/greenDAO)
+greenDAO is a light & fast ORM solution for Android that maps objects to SQLite databases. 
+使用的是GreenDAO 3
+
+### [Glide](https://github.com/bumptech/glide)
+An image loading and caching library for Android focused on smooth scrolling
+
+
+## 工具
+
+### [tinypng](https://tinypng.com/)
+png的压缩处理使用
+
+### [leakcanary](https://github.com/square/leakcanary/wiki/FAQ)
+A memory leak detection library for Android and Java.
+
+## UI组件库
+
+[MaterialDesignLibrary](https://github.com/navasmdc/MaterialDesignLibrary)
+[android-open-project](https://github.com/Trinea/android-open-project)
+ASD(Android Support Design)
+APL(Android Percent Layout)
+DBL(Data Binding Library)
+Tab滑页 、广告页 的 PagerSlidingTabStrip 或 ViewPagerIndicator +ViewPager 很常用；
+还有查看图片的 PhotoView ；
+方便选择时间日期 省市地域的 各种改版 WheelView ；
+UI遵循Android设计标准的话， 会用到support包里的 SwipeRefreshLayout, DrawerLayout，新出的 recyclerview cardview 等 ，还有toolbar，design ，第三方的材料设计组件 等等；
+给Listview 加动效的listviewanimations ；
+提高操作性的左滑后退 SwipeBackLayout ；
+多标签流的 flowlayout;
+工具类
+[AndroidUtilCode](https://github.com/Blankj/AndroidUtilCode)
+[android-common](https://github.com/Trinea/android-common)
+
+
+## 编码规范
+
+[android-best-practices](https://github.com/futurice/android-best-practices/blob/master/translations/Chinese/README.cn.md)
 
 ### 资源文件 Resources
-
 
 - **命名** 遵循前缀表明类型的习惯，形如`type_foo_bar.xml`。例如：`fragment_contact_details.xml`,`view_primary_button.xml`,`activity_main.xml`.
 
