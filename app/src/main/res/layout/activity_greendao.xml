@@ -32,4 +32,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Query User List By Age"/>
+
+    <Button
+        android:id="@+id/toOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="toOne"/>
+
+    <Button
+        android:id="@+id/toMany"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="toMany"/>
 </LinearLayout>

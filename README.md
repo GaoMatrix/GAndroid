@@ -38,8 +38,20 @@ A memory leak detection library for Android and Java.
 
 ## UI组件库
 
-[MaterialDesignLibrary](https://github.com/navasmdc/MaterialDesignLibrary)
+[Material Design Android Library](https://github.com/navasmdc/MaterialDesignLibrary)
+Material风格的组件库
+
 [android-open-project](https://github.com/Trinea/android-open-project)
+Collect and classify android open source projects
+
+[Material Design Icons](https://materialdesignicons.com/)
+里面有很多现成的图标，来自社区和其他一些app，作为一个美术功底为零的开发者，做自己的项目的时候直接拿里面的icon来用
+
+[android-iconify](https://github.com/JoanZapata/android-iconify)
+
+[Android Material Design Icon Generator Plugin](https://github.com/konifar/android-material-design-icon-generator-plugin)
+This plugin help you to set [material design icons](https://github.com/google/material-design-icons) to your Android project.
+
 ASD(Android Support Design)
 APL(Android Percent Layout)
 DBL(Data Binding Library)

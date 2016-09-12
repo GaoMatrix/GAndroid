@@ -30,6 +30,7 @@ public class RetrofitClient {
 
     private static final int DEFAULT_TIMEOUT = 5;
 
+    private static RetrofitClient sInstance;
     private Retrofit mRetrofit;
     private RetrofitApi mRetrofitApi;
 
@@ -46,6 +47,7 @@ public class RetrofitClient {
             builder.addInterceptor(loggingInterceptor);
             builder.addNetworkInterceptor(new StethoInterceptor());
         // }
+
         mRetrofit = new Retrofit.Builder()
                 .client(builder.build())
                 .addConverterFactory(GsonConverterFactory.create())
@@ -56,14 +58,13 @@ public class RetrofitClient {
         mRetrofitApi = mRetrofit.create(RetrofitApi.class);
     }
 
-    //在访问HttpMethods时创建单例
-    private static class SingletonHolder{
-        private static final RetrofitClient INSTANCE = new RetrofitClient();
-    }
-
     //获取单例
-    public static RetrofitClient getInstance(){
-        return SingletonHolder.INSTANCE;
+    public static synchronized RetrofitClient getInstance() {
+        if (null == sInstance) {
+            sInstance = new RetrofitClient();
+        }
+
+        return sInstance;
     }
 
     /**

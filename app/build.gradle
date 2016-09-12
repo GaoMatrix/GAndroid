@@ -21,6 +21,18 @@ android {
     }
 }
 
+greendao {
+    schemaVersion 1
+
+    // The location where generated sources should be stored at.
+    // Defaults to the generated source folder inside the build directory
+    targetGenDir 'src/main/java'
+
+    // The package name for generated DAOs, DaoMaster, and DaoSession.
+    // Defaults to the package name of your source entities.
+    daoPackage 'com.gao.android.model.dao'
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'

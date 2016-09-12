@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.gao.android.model.DaoMaster;
+import com.gao.android.model.DaoSession;
 
 /**
  * Created by GaoMatrix on 2016/9/8.
@@ -28,9 +29,10 @@ public class DBManager {
 
     /**
      * 获取可读数据库
+     *
      * @return SQLiteDatabase
      */
-    public SQLiteDatabase getReadableDatabase() {
+    private SQLiteDatabase getReadableDatabase() {
         if (mOpenHelper == null) {
             mOpenHelper = new DaoMaster.DevOpenHelper(mContext, DB_NAME, null);
         }
@@ -40,13 +42,35 @@ public class DBManager {
 
     /**
      * 获取可写数据库
+     *
      * @return SQLiteDatabase
      */
-    public SQLiteDatabase getWritableDatabase() {
+    private SQLiteDatabase getWritableDatabase() {
         if (mOpenHelper == null) {
             mOpenHelper = new DaoMaster.DevOpenHelper(mContext, DB_NAME, null);
         }
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         return db;
     }
+
+    /**
+     * 获得Writable的DaoSession
+     * @return
+     */
+    public DaoSession getDaoSessionWritable() {
+        DaoMaster daoMaster = new DaoMaster(getWritableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        return daoSession;
+    }
+
+    /**
+     * 获得Readable的DaoSession
+     * @return
+     */
+    public DaoSession getDaoSessionReadable() {
+        DaoMaster daoMaster = new DaoMaster(getReadableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        return daoSession;
+    }
+
 }
