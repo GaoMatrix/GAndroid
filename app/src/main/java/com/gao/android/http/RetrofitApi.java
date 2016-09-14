@@ -2,7 +2,6 @@ package com.gao.android.http;
 
 import android.graphics.Movie;
 
-import com.gao.android.model.HttpResult;
 import com.gao.android.model.Subject;
 
 import java.util.List;

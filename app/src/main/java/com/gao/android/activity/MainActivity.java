@@ -19,8 +19,8 @@ public class MainActivity extends BaseActivity {
     Button retrofit;
     @BindView(R.id.adapter)
     Button adapter;
-    @BindView(R.id.greenDao)
-    Button greenDao;
+    @BindView(R.id.ormlite)
+    Button ormlite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.glide, R.id.retrofit, R.id.logger, R.id.adapter, R.id.greenDao})
+    @OnClick({R.id.glide, R.id.retrofit, R.id.logger, R.id.adapter, R.id.ormlite})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.glide:
@@ -44,8 +44,8 @@ public class MainActivity extends BaseActivity {
             case R.id.adapter:
                 startActivity(new Intent(this, AdapterActivity.class));
                 break;
-            case R.id.greenDao:
-                startActivity(new Intent(this, GreenDaoActivity.class));
+            case R.id.ormlite:
+                startActivity(new Intent(this, OrmLiteActivity.class));
                 break;
         }
     }

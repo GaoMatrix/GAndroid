@@ -38,9 +38,9 @@
         android:layout_height="wrap_content"
         android:text="Adapter Test" />
     <Button
-        android:id="@+id/greenDao"
+        android:id="@+id/ormlite"
         android:gravity="center"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="GreenDao Test" />
+        android:text="ormlite Test" />
 </LinearLayout>

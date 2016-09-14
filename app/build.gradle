@@ -21,20 +21,8 @@ android {
     }
 }
 
-greendao {
-    schemaVersion 1
-
-    // The location where generated sources should be stored at.
-    // Defaults to the generated source folder inside the build directory
-    targetGenDir 'src/main/java'
-
-    // The package name for generated DAOs, DaoMaster, and DaoSession.
-    // Defaults to the package name of your source entities.
-    daoPackage 'com.gao.android.model.dao'
-}
-
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     // logger
     // butterknife
@@ -54,10 +42,11 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'com.android.support:design:23.4.0'
-    compile 'org.greenrobot:greendao:3.1.1'
     compile 'com.facebook.stetho:stetho:1.3.1'
     compile 'com.facebook.stetho:stetho-okhttp3:1.3.1'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    compile files('libs/ormlite-android-5.0.jar')
+    compile files('libs/ormlite-core-5.0.jar')
 }

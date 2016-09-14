@@ -18,6 +18,6 @@ public class AppConfig {
 //                .logAdapter(new AndroidLogAdapter()); //default AndroidLogAdapter
         Logger.init("Gao")
                 .hideThreadInfo()
-                .methodCount(0);
+                .methodCount(1);
     }
 }

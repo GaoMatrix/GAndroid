@@ -1,4 +1,4 @@
-package com.gao.android.model;
+package com.gao.android.http;
 
 /**
  * Created by GaoMatrix on 2016/9/6.

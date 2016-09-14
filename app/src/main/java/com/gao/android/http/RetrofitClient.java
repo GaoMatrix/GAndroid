@@ -2,7 +2,6 @@ package com.gao.android.http;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.gao.android.exception.ApiException;
-import com.gao.android.model.HttpResult;
 import com.gao.android.model.Subject;
 import com.orhanobut.logger.Logger;
 
