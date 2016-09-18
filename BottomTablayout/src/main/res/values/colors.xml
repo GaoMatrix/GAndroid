@@ -10,4 +10,9 @@
     <color name="tab_gray">#ff999999</color>
     <color name="tab_green">#ff45c01a</color>
 
+    <color name="primary">#7B1FA2</color>
+    <color name="primaryDark">#6A1B9A</color>
+    <color name="accent">#DD2C00</color>
+    <color name="material_red_400">#EF5350</color>
+
 </resources>
