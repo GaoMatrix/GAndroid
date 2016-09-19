@@ -9,8 +9,9 @@ import android.widget.Button;
 
 import com.gao.tabview.material.MaterialDialogActivity;
 import com.gao.tabview.material.MaterialDrawerActivity;
-import com.gao.tabview.tablayout.TabLayoutBottomFragment;
-import com.gao.tabview.tablayout.TabLayoutBottomViewPager;
+import com.gao.tabview.tablayout.SlidingTabActivity;
+import com.gao.tabview.tablayout.TabLayoutBottomFragmentActivity;
+import com.gao.tabview.tablayout.TabLayoutBottomViewPagerActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +30,8 @@ public class WechatFragment extends BaseFragment implements ITabClickListener {
     Button mBottomViewPager;
     @BindView(R.id.bottomFragment)
     Button mBottomFragment;
+    @BindView(R.id.slidingTab)
+    Button mSlidingTab;
 
     @Override
     public void fetchData() {
@@ -62,7 +65,8 @@ public class WechatFragment extends BaseFragment implements ITabClickListener {
         return this;
     }
 
-    @OnClick({R.id.materialDialogs, R.id.materialDrawer, R.id.bottomViewPager, R.id.bottomFragment})
+    @OnClick({R.id.materialDialogs, R.id.materialDrawer, R.id.bottomViewPager,
+            R.id.bottomFragment, R.id.slidingTab})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.materialDialogs:
@@ -74,12 +78,16 @@ public class WechatFragment extends BaseFragment implements ITabClickListener {
                 startActivity(intent1);
                 break;
             case R.id.bottomViewPager:
-                Intent intent2 = new Intent(getActivity(), TabLayoutBottomViewPager.class);
+                Intent intent2 = new Intent(getActivity(), TabLayoutBottomViewPagerActivity.class);
                 startActivity(intent2);
                 break;
             case R.id.bottomFragment:
-                Intent intent3 = new Intent(getActivity(), TabLayoutBottomFragment.class);
+                Intent intent3 = new Intent(getActivity(), TabLayoutBottomFragmentActivity.class);
                 startActivity(intent3);
+                break;
+            case R.id.slidingTab:
+                Intent intent4 = new Intent(getActivity(), SlidingTabActivity.class);
+                startActivity(intent4);
                 break;
         }
     }

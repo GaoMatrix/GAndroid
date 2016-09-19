@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * Created by GaoMatrix on 2016/9/19.
  * 底部Switch Fragment 只能点击tab切换
  */
-public class TabLayoutBottomFragment extends AppCompatActivity {
+public class TabLayoutBottomFragmentActivity extends AppCompatActivity {
     private Context mContext = this;
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private ArrayList<Fragment> mFragments2 = new ArrayList<>();

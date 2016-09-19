@@ -23,7 +23,7 @@ import java.util.Random;
 /**
  * Created by GaoMatrix on 2016/9/19.
  */
-public class TabLayoutBottomViewPager extends AppCompatActivity {
+public class TabLayoutBottomViewPagerActivity extends AppCompatActivity {
     private Context mContext = this;
     /**
      * 所有Fragment的集合
