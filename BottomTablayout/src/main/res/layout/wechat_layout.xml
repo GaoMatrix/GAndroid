@@ -2,25 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:gravity="center"
               android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
         android:text="this is wechat"
         />
 
     <Button
-        android:id="@+id/showColorChooserCustomColors"
+        android:id="@+id/materialDialogs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ColorChooserCustomColors"/>
+        android:text="material-dialogs"/>
 
     <Button
-        android:id="@+id/showThemed"
+        android:id="@+id/materialDrawer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Themed"/>
+        android:text="MaterialDrawer"/>
 </LinearLayout>

@@ -202,4 +202,5 @@
     <string name="example_prompt">Example check prompt</string>
     <string name="list_longPress">Basic List (Long Press)</string>
     <string name="add_item">Add Item</string>
+
 </resources>
