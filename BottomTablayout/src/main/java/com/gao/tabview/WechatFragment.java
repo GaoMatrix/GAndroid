@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.gao.tabview.material.MaterialDialogActivity;
 import com.gao.tabview.material.MaterialDrawerActivity;
+import com.gao.tabview.tablayout.SegmentTabActivity;
 import com.gao.tabview.tablayout.SlidingTabActivity;
 import com.gao.tabview.tablayout.TabLayoutBottomFragmentActivity;
 import com.gao.tabview.tablayout.TabLayoutBottomViewPagerActivity;
@@ -32,6 +33,8 @@ public class WechatFragment extends BaseFragment implements ITabClickListener {
     Button mBottomFragment;
     @BindView(R.id.slidingTab)
     Button mSlidingTab;
+    @BindView(R.id.segmentTab)
+    Button mSegmentTab;
 
     @Override
     public void fetchData() {
@@ -66,7 +69,7 @@ public class WechatFragment extends BaseFragment implements ITabClickListener {
     }
 
     @OnClick({R.id.materialDialogs, R.id.materialDrawer, R.id.bottomViewPager,
-            R.id.bottomFragment, R.id.slidingTab})
+            R.id.bottomFragment, R.id.slidingTab, R.id.segmentTab})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.materialDialogs:
@@ -88,6 +91,10 @@ public class WechatFragment extends BaseFragment implements ITabClickListener {
             case R.id.slidingTab:
                 Intent intent4 = new Intent(getActivity(), SlidingTabActivity.class);
                 startActivity(intent4);
+                break;
+            case R.id.segmentTab:
+                Intent intent5 = new Intent(getActivity(), SegmentTabActivity.class);
+                startActivity(intent5);
                 break;
         }
     }
