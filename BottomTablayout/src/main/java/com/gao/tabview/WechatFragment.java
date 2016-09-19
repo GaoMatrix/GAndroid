@@ -7,8 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.gao.tabview.Activity.MaterialDialogActivity;
-import com.gao.tabview.Activity.MaterialDrawerActivity;
+import com.gao.tabview.material.MaterialDialogActivity;
+import com.gao.tabview.material.MaterialDrawerActivity;
+import com.gao.tabview.tablayout.TabLayoutBottomFragment;
+import com.gao.tabview.tablayout.TabLayoutBottomViewPager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,6 +25,10 @@ public class WechatFragment extends BaseFragment implements ITabClickListener {
     Button mMaterialDialogs;
     @BindView(R.id.materialDrawer)
     Button mMaterialDrawer;
+    @BindView(R.id.bottomViewPager)
+    Button mBottomViewPager;
+    @BindView(R.id.bottomFragment)
+    Button mBottomFragment;
 
     @Override
     public void fetchData() {
@@ -56,7 +62,7 @@ public class WechatFragment extends BaseFragment implements ITabClickListener {
         return this;
     }
 
-    @OnClick({R.id.materialDialogs, R.id.materialDrawer})
+    @OnClick({R.id.materialDialogs, R.id.materialDrawer, R.id.bottomViewPager, R.id.bottomFragment})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.materialDialogs:
@@ -67,6 +73,15 @@ public class WechatFragment extends BaseFragment implements ITabClickListener {
                 Intent intent1 = new Intent(getActivity(), MaterialDrawerActivity.class);
                 startActivity(intent1);
                 break;
+            case R.id.bottomViewPager:
+                Intent intent2 = new Intent(getActivity(), TabLayoutBottomViewPager.class);
+                startActivity(intent2);
+                break;
+            case R.id.bottomFragment:
+                Intent intent3 = new Intent(getActivity(), TabLayoutBottomFragment.class);
+                startActivity(intent3);
+                break;
         }
     }
+
 }

@@ -1,4 +1,4 @@
-package com.gao.tabview.Activity;
+package com.gao.tabview.material;
 
 import android.app.Activity;
 import android.graphics.Color;

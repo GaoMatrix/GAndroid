@@ -22,4 +22,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="MaterialDrawer"/>
+
+    <Button
+        android:id="@+id/bottomViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bottom ViewPager"/>
+
+    <Button
+        android:id="@+id/bottomFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bottom Fragment"/>
 </LinearLayout>
