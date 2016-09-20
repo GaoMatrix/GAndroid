@@ -46,4 +46,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Segment Tab"/>
+
+    <Button
+        android:id="@+id/photoView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Photo View"/>
+
+    <Button
+        android:id="@+id/photoViewViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Photo View View Pager"/>
 </LinearLayout>

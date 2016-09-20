@@ -9,6 +9,8 @@ import android.widget.Button;
 
 import com.gao.tabview.material.MaterialDialogActivity;
 import com.gao.tabview.material.MaterialDrawerActivity;
+import com.gao.tabview.photoview.PhotoViewActivity;
+import com.gao.tabview.photoview.ViewPagerActivity;
 import com.gao.tabview.tablayout.SegmentTabActivity;
 import com.gao.tabview.tablayout.SlidingTabActivity;
 import com.gao.tabview.tablayout.TabLayoutBottomFragmentActivity;
@@ -35,6 +37,10 @@ public class WechatFragment extends BaseFragment implements ITabClickListener {
     Button mSlidingTab;
     @BindView(R.id.segmentTab)
     Button mSegmentTab;
+    @BindView(R.id.photoView)
+    Button mPhotoView;
+    @BindView(R.id.photoViewViewPager)
+    Button mPhotoViewViewPager;
 
     @Override
     public void fetchData() {
@@ -69,7 +75,8 @@ public class WechatFragment extends BaseFragment implements ITabClickListener {
     }
 
     @OnClick({R.id.materialDialogs, R.id.materialDrawer, R.id.bottomViewPager,
-            R.id.bottomFragment, R.id.slidingTab, R.id.segmentTab})
+            R.id.bottomFragment, R.id.slidingTab, R.id.segmentTab, R.id.photoView,
+            R.id.photoViewViewPager})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.materialDialogs:
@@ -95,6 +102,14 @@ public class WechatFragment extends BaseFragment implements ITabClickListener {
             case R.id.segmentTab:
                 Intent intent5 = new Intent(getActivity(), SegmentTabActivity.class);
                 startActivity(intent5);
+                break;
+            case R.id.photoView:
+                Intent intent6 = new Intent(getActivity(), PhotoViewActivity.class);
+                startActivity(intent6);
+                break;
+            case R.id.photoViewViewPager:
+                Intent intent7 = new Intent(getActivity(), ViewPagerActivity.class);
+                startActivity(intent7);
                 break;
         }
     }

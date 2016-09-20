@@ -21,6 +21,8 @@
         <activity android:name=".tablayout.TabLayoutBottomViewPagerActivity"></activity>
         <activity android:name=".tablayout.SlidingTabActivity"></activity>
         <activity android:name=".tablayout.SegmentTabActivity"></activity>
+        <activity android:name=".photoview.PhotoViewActivity"></activity>
+        <activity android:name=".photoview.ViewPagerActivity"></activity>
     </application>
 
 </manifest>
