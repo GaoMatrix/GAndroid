@@ -20,6 +20,9 @@ package com.gao.toolbar;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -33,11 +36,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import com.flyco.tablayout.listener.OnTabSelectListener;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements OnTabSelectListener {
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
     private int mCurrentSelectedPosition;
+
+    private ArrayList<Fragment> mFragments = new ArrayList<>();
+    private final String[] mTitles = {
+            "热门", "iOS", "Android"
+            , "前端", "后端", "设计", "工具资源"
+    };
+    private MyPagerAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +60,17 @@ public class MainActivity extends AppCompatActivity {
 
         setUpNavigationDrawer();
 
+        for (String title : mTitles) {
+            mFragments.add(SimpleCardFragment.getInstance(title));
+        }
+        ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
+        mAdapter = new MyPagerAdapter(getSupportFragmentManager());
+        vpPager.setAdapter(mAdapter);
+
+        com.flyco.tablayout.SlidingTabLayout tabLayout_4 = (com.flyco.tablayout.SlidingTabLayout) findViewById(R.id.sliding_tabs);
+        tabLayout_4.setViewPager(vpPager);
         // Initial tab count
-        setTabs(4);
+        // setTabs(8);
         mNavigationView.setCheckedItem(R.id.navigation_item_4);
 
     }
@@ -88,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
 
-                setTabs(mCurrentSelectedPosition + 1);
+                // setTabs(mCurrentSelectedPosition + 1);
                 mDrawerLayout.closeDrawer(mNavigationView);
                 return true;
             }
@@ -110,28 +133,6 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerToggle.setDrawerIndicatorEnabled(true);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-
-    }
-
-    public void setTabs(int count) {
-        ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
-        ContentFragmentAdapter adapterViewPager = new ContentFragmentAdapter(getSupportFragmentManager(), this, count);
-        vpPager.setAdapter(adapterViewPager);
-
-        SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
-        slidingTabLayout.setTextColor(getResources().getColor(R.color.tab_text_color));
-        slidingTabLayout.setTextColorSelected(getResources().getColor(R.color.tab_text_color_selected));
-        slidingTabLayout.setDistributeEvenly();
-        slidingTabLayout.setViewPager(vpPager);
-        slidingTabLayout.setTabSelected(0);
-
-        // Change indicator color
-        slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
-            @Override
-            public int getIndicatorColor(int position) {
-                return getResources().getColor(R.color.tab_indicator);
-            }
-        });
 
     }
 
@@ -198,5 +199,36 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return item.getItemId() == R.id.action_settings || super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onTabSelect(int position) {
+        Toast.makeText(this, "onTabSelect&position--->" + position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onTabReselect(int position) {
+        Toast.makeText(this, "onTabReselect&position--->" + position, Toast.LENGTH_SHORT).show();
+    }
+
+    private class MyPagerAdapter extends FragmentPagerAdapter {
+        public MyPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragments.size();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mTitles[position];
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragments.get(position);
+        }
     }
 }
