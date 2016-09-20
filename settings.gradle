@@ -1,1 +1,1 @@
-include ':app', ':BottomTablayout'
+include ':app', ':BottomTablayout', ':ToolBar'
