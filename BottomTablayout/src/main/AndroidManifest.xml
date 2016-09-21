@@ -23,6 +23,7 @@
         <activity android:name=".tablayout.SegmentTabActivity"></activity>
         <activity android:name=".photoview.PhotoViewActivity"></activity>
         <activity android:name=".photoview.ViewPagerActivity"></activity>
+        <activity android:name=".swipebacklayout.SwipeBackLayoutActivity"></activity>
     </application>
 
 </manifest>

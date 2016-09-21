@@ -58,4 +58,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Photo View View Pager"/>
+
+    <Button
+        android:id="@+id/swipeBackLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SwipeBackLayout"/>
 </LinearLayout>
