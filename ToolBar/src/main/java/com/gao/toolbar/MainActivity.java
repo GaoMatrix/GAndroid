@@ -37,6 +37,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.flyco.tablayout.listener.OnTabSelectListener;
+import com.gao.toolbar.banner.BannerFragment;
 
 import java.util.ArrayList;
 
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements OnTabSelectListen
 
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private final String[] mTitles = {
-            "热门", "iOS", "Android"
+            "Banner", "热门", "iOS", "Android"
             , "前端", "后端", "设计", "工具资源"
     };
     private MyPagerAdapter mAdapter;
@@ -60,8 +61,9 @@ public class MainActivity extends AppCompatActivity implements OnTabSelectListen
 
         setUpNavigationDrawer();
 
-        for (String title : mTitles) {
-            mFragments.add(SimpleCardFragment.getInstance(title));
+        mFragments.add(BannerFragment.getInstance());
+        for (int i = 1; i < mTitles.length; i++) {
+            mFragments.add(SimpleCardFragment.getInstance(mTitles[i]));
         }
         ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
         mAdapter = new MyPagerAdapter(getSupportFragmentManager());
