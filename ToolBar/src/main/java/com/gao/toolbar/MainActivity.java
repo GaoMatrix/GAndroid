@@ -17,6 +17,7 @@ package com.gao.toolbar;
  * limitations under the License.
  */
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -30,6 +31,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
+import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,12 +55,14 @@ public class MainActivity extends AppCompatActivity implements OnTabSelectListen
             , "前端", "后端", "设计", "工具资源"
     };
     private MyPagerAdapter mAdapter;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initToolbar();
         setUpNavigationDrawer();
 
         mFragments.add(BannerFragment.getInstance());
@@ -77,10 +81,9 @@ public class MainActivity extends AppCompatActivity implements OnTabSelectListen
 
     }
 
-    private void setUpNavigationDrawer() {
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+    private void initToolbar() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
 
         try {
@@ -92,6 +95,27 @@ public class MainActivity extends AppCompatActivity implements OnTabSelectListen
         } catch (Exception ignored) {
         }
 
+        /* 菜单的监听可以在toolbar里设置，也可以像ActionBar那样，通过下面的两个回调方法来处理 */
+        mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_settings:
+                        actionSetting(item);
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+
+            private void actionSetting(MenuItem menuItem) {
+                Toast.makeText(MainActivity.this, "setting", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void setUpNavigationDrawer() {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mNavigationView = (NavigationView) findViewById(R.id.navigation_view);
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -163,8 +187,8 @@ public class MainActivity extends AppCompatActivity implements OnTabSelectListen
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        // search
         MenuItem searchItem = menu.findItem(R.id.action_search);
-
         if (searchItem != null) {
             SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
 
@@ -183,24 +207,19 @@ public class MainActivity extends AppCompatActivity implements OnTabSelectListen
                     return false;
                 }
             });
-
         }
+
+        // share
+        MenuItem shareItem = menu.findItem(R.id.action_share);
+        if (shareItem != null) {
+            ShareActionProvider mShareActionProvider = (ShareActionProvider)
+                    MenuItemCompat.getActionProvider(shareItem);
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/*");
+            mShareActionProvider.setShareIntent(intent);
+        }
+
         return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        if (item != null && item.getItemId() == android.R.id.home) {
-            if (mDrawerLayout.isDrawerOpen(mNavigationView)) {
-                mDrawerLayout.closeDrawer(mNavigationView);
-            } else {
-                mDrawerLayout.openDrawer(mNavigationView);
-            }
-            return true;
-        }
-
-        return item.getItemId() == R.id.action_settings || super.onOptionsItemSelected(item);
     }
 
     @Override
