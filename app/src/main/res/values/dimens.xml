@@ -13,4 +13,6 @@
     <dimen name="font_size_normal">16dp</dimen>
     <dimen name="font_size_small">12dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="holo_gap">8dp</dimen>
 </resources>

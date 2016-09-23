@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">GAndroid</string>
     <string name="title_activity_adapter">AdapterActivity</string>
+
+    <string name="move_location">Move Location</string>
+    <string name="clear_location">Clear History</string>
 </resources>

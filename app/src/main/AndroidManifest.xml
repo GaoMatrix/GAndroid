@@ -23,6 +23,7 @@
         <activity android:name=".activity.RetrofitActivity" />
         <activity android:name=".activity.AdapterActivity" />
         <activity android:name=".activity.OrmLiteActivity" />
+        <activity android:name=".ottotest.LocationActivity" />
 
         <meta-data
             android:name="com.gao.android.config.SimpleGlideModule"

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.gao.android.R;
+import com.gao.android.ottotest.LocationActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,6 +22,8 @@ public class MainActivity extends BaseActivity {
     Button adapter;
     @BindView(R.id.ormlite)
     Button ormlite;
+    @BindView(R.id.otto)
+    Button mOtto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +32,8 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.glide, R.id.retrofit, R.id.logger, R.id.adapter, R.id.ormlite})
+    @OnClick({R.id.glide, R.id.retrofit, R.id.logger,
+            R.id.adapter, R.id.ormlite, R.id.otto})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.glide:
@@ -46,6 +50,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.ormlite:
                 startActivity(new Intent(this, OrmLiteActivity.class));
+                break;
+            case R.id.otto:
+                startActivity(new Intent(this, LocationActivity.class));
                 break;
         }
     }
