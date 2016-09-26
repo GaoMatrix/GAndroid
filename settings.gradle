@@ -1,1 +1,1 @@
-include ':app', ':BottomTablayout', ':ToolBar', ':swipebacklayoutlibrary'
+include ':app', ':BottomTablayout', ':ToolBar', ':swipebacklayoutlibrary', ':UmengShare'
