@@ -28,6 +28,10 @@
         <meta-data
             android:name="com.gao.android.config.SimpleGlideModule"
             android:value="GlideModule" />
+
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
     </application>
 
 </manifest>
