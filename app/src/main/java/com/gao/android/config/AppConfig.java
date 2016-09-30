@@ -1,5 +1,6 @@
 package com.gao.android.config;
 
+import com.gao.android.BuildConfig;
 import com.orhanobut.logger.Logger;
 
 /**
@@ -16,8 +17,10 @@ public class AppConfig {
 //                .logLevel(LogLevel.NONE)        // default LogLevel.FULL
 //                .methodOffset(2)                // default 0
 //                .logAdapter(new AndroidLogAdapter()); //default AndroidLogAdapter
-        Logger.init("Gao")
-                .hideThreadInfo()
-                .methodCount(1);
+        if (BuildConfig.LOG_DEBUG) {
+            Logger.init("Gao")
+                    .hideThreadInfo()
+                    .methodCount(1);
+        }
     }
 }

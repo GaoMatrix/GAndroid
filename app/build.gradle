@@ -61,6 +61,7 @@ android {
             // 不显示Log
             buildConfigField "boolean", "LOG_DEBUG", "false"
 
+            versionNameSuffix "-release"
             minifyEnabled true
             zipAlignEnabled true
             // 移除无用的resource文件

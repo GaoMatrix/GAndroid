@@ -82,12 +82,10 @@ public class MainActivity extends ActionBarActivity implements TabLayout.OnTabCl
 
         public FragAdapter(FragmentManager fm) {
             super(fm);
-            // TODO Auto-generated constructor stub
         }
 
         @Override
         public Fragment getItem(int arg0) {
-            // TODO Auto-generated method stub
             try {
                 return tabs.get(arg0).tagFragmentClz.newInstance();
 
@@ -101,7 +99,6 @@ public class MainActivity extends ActionBarActivity implements TabLayout.OnTabCl
 
         @Override
         public int getCount() {
-            // TODO Auto-generated method stub
             return tabs.size();
         }
 

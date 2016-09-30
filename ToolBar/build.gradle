@@ -39,4 +39,18 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
 
     compile 'com.jakewharton:butterknife:8.4.0'
+
+    compile('com.mikepenz:materialdrawer:5.6.0@aar') {
+        transitive = true
+    }
+
+    // icon fonts used inside the sample
+    // https://github.com/mikepenz/Android-Iconics
+    compile 'com.mikepenz:google-material-typeface:2.2.0.1@aar'
+    compile 'com.mikepenz:fontawesome-typeface:4.6.0.3@aar'
+    compile 'com.mikepenz:octicons-typeface:3.0.0.1@aar'
+
+    //used to provide different itemAnimators for the RecyclerView
+    //https://github.com/mikepenz/ItemAnimators
+    compile 'com.mikepenz:itemanimators:0.5.0@aar'
 }
