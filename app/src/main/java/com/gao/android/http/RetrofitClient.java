@@ -1,6 +1,7 @@
 package com.gao.android.http;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
+import com.gao.android.BuildConfig;
 import com.gao.android.exception.ApiException;
 import com.gao.android.model.Subject;
 import com.orhanobut.logger.Logger;
@@ -38,14 +39,14 @@ public class RetrofitClient {
         //手动创建一个OkHttpClient并设置超时时间
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
-        // if (BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG) {
             // Log信息拦截器
             HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             //设置 Debug Log 模式
             builder.addInterceptor(loggingInterceptor);
             builder.addNetworkInterceptor(new StethoInterceptor());
-        // }
+        }
 
         mRetrofit = new Retrofit.Builder()
                 .client(builder.build())
