@@ -3,6 +3,7 @@ package com.gao.android.update;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -16,6 +17,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.GravityEnum;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.gao.android.update.listener.OnUpdateListener;
 import com.gao.android.update.pojo.UpdateInfo;
@@ -79,6 +81,8 @@ public class UpdateHelper {
 
 	private HashMap<String, String> cache = new HashMap<String, String>();
 
+	private MaterialDialog mProgressDialog;
+
 	private Handler handler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
@@ -86,6 +90,7 @@ public class UpdateHelper {
 			switch (msg.what) {
 			case UPDATE_NOTIFICATION_PROGRESS:
 				showDownloadNotificationUI((UpdateInfo) msg.obj, msg.arg1);
+				mProgressDialog.setProgress(msg.arg1);
 				break;
 			case COMPLETE_DOWNLOAD_APK:
 				if (UpdateHelper.this.isAutoInstall) {
@@ -147,7 +152,7 @@ public class UpdateHelper {
 		AsyncCheck asyncCheck = new AsyncCheck();
 		asyncCheck.execute(checkUrl);
 	}
-	
+
 	/**
 	 * 2014-10-27新增流量提示框，当网络为数据流量方式时，下载就会弹出此对话框提示
 	 * @param updateInfo
@@ -314,6 +319,37 @@ public class UpdateHelper {
 	private class AsyncDownLoad extends AsyncTask<UpdateInfo, Integer, Boolean> {
 		File apkFile = null;
 		UpdateInfo updateInfo = null;
+
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			mProgressDialog = new  MaterialDialog.Builder(mContext)
+					.title("正在下载")
+					.content("请稍等")
+					.contentGravity(GravityEnum.CENTER)
+					.progress(false, 100, true)
+					.negativeText("取消")
+					.onNegative(new MaterialDialog.SingleButtonCallback() {
+						@Override
+						public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+							// TODO: 2016/10/9 点击取消下载
+						}
+					})
+					.positiveText("后台下载")
+					.onPositive(new MaterialDialog.SingleButtonCallback() {
+						@Override
+						public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+							dialog.dismiss();
+						}
+					})
+					.cancelListener(new DialogInterface.OnCancelListener() {
+						@Override
+						public void onCancel(DialogInterface dialog) {
+						}
+					})
+					.show();
+		}
+
 		@Override
 		protected Boolean doInBackground(UpdateInfo... params) {
 			HttpClient httpClient = new DefaultHttpClient();
