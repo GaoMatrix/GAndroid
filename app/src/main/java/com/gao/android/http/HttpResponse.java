@@ -1,6 +1,10 @@
 package com.gao.android.http;
 
 public class HttpResponse<T> {
+    /**
+     * 0 成功
+     * 1 失败
+     */
     private int code;
     private String message;
     private T data;
