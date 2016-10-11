@@ -1,4 +1,11 @@
-package com.gao.android.util;
+package com.gao.android.util.http;
+
+import android.os.AsyncTask;
+
+import com.gao.android.util.ArrayUtils;
+import com.gao.android.util.IOUtils;
+import com.gao.android.util.MapUtils;
+import com.gao.android.util.StringUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,16 +18,10 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 
-import android.os.AsyncTask;
-import cn.trinea.android.common.constant.HttpConstants;
-import cn.trinea.android.common.entity.HttpRequest;
-import cn.trinea.android.common.entity.HttpResponse;
-import cn.trinea.android.common.service.HttpCache;
 
 /**
  * HttpUtils
  * <ul>
- * <strong>Http get, you can also use {@link HttpCache}</strong>
  * <li>{@link #httpGet(HttpRequest)} http get synchronous</li>
  * <li>{@link #httpGet(String)} http get synchronous</li>
  * <li>{@link #httpGetString(String)} http get synchronous, response is String</li>
@@ -165,8 +166,6 @@ public class HttpUtils {
      * http get asynchronous
      * <ul>
      * <li>It gets data or network asynchronous.</li>
-     * <li>If you want get data synchronous, use {@link HttpCache#httpGet(HttpRequest)} or
-     * {@link HttpCache#httpGetString(HttpRequest)}</li>
      * </ul>
      * 
      * @param request
@@ -184,8 +183,6 @@ public class HttpUtils {
      * <li>use bufferedReader to improve the reading speed</li>
      * </ul>
      * 
-     * @param httpUrl
-     * @param paras
      * @return the response of the url, if null represents http error
      */
     public static HttpResponse httpPost(HttpRequest request) {

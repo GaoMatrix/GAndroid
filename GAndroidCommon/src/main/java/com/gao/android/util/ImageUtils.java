@@ -1,5 +1,13 @@
 package com.gao.android.util;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+
+import com.gao.android.util.http.HttpUtils;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,12 +15,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
-
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 
 /**
  * ImageUtils
@@ -117,7 +119,6 @@ public class ImageUtils {
      * @param imageUrl
      * @param readTimeOutMillis
      * @return
-     * @see ImageUtils#getInputStreamFromUrl(String, int, boolean)
      */
     public static InputStream getInputStreamFromUrl(String imageUrl, int readTimeOutMillis) {
         return getInputStreamFromUrl(imageUrl, readTimeOutMillis, null);
@@ -160,7 +161,6 @@ public class ImageUtils {
      * @param imageUrl
      * @param readTimeOutMillis
      * @return
-     * @see ImageUtils#getDrawableFromUrl(String, int, boolean)
      */
     public static Drawable getDrawableFromUrl(String imageUrl, int readTimeOutMillis) {
         return getDrawableFromUrl(imageUrl, readTimeOutMillis, null);
@@ -188,7 +188,6 @@ public class ImageUtils {
      * @param imageUrl
      * @param readTimeOut
      * @return
-     * @see ImageUtils#getBitmapFromUrl(String, int, boolean)
      */
     public static Bitmap getBitmapFromUrl(String imageUrl, int readTimeOut) {
         return getBitmapFromUrl(imageUrl, readTimeOut, null);

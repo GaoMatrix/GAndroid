@@ -118,7 +118,7 @@ public class BannerFragment extends Fragment implements BGABanner.OnItemClickLis
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_banner, null);
+        View view = inflater.inflate(R.layout.fragment_banner, null);
         initView(view);
         ButterKnife.bind(this, view);
         return view;
@@ -127,8 +127,8 @@ public class BannerFragment extends Fragment implements BGABanner.OnItemClickLis
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setListener();
-        loadData();
+        initListener();
+        initData();
     }
 
     @Override
@@ -152,28 +152,28 @@ public class BannerFragment extends Fragment implements BGABanner.OnItemClickLis
         mDepthBanner = (BGABanner) view.findViewById(R.id.banner_main_depth);
     }
 
-    private void setListener() {
+    private void initListener() {
         mDefaultBanner.setOnItemClickListener(this);
         mCubeBanner.setOnItemClickListener(this);
     }
 
-    private void loadData() {
-        loadData(mDefaultBanner, 1);
-        loadData(mCubeBanner, 2);
-        loadData(mAccordionBanner, 3);
-        loadData(mFlipBanner, 4);
-        loadData(mRotateBanner, 5);
-        loadData(mAlphaBanner, 6);
-        loadData(mZoomFadeBanner, 3);
-        loadData(mFadeBanner, 4);
-        loadData(mZoomCenterBanner, 5);
-        loadData(mZoomBanner, 6);
-        loadData(mStackBanner, 3);
-        loadData(mZoomStackBanner, 4);
-        loadData(mDepthBanner, 5);
+    private void initData() {
+        initData(mDefaultBanner, 1);
+        initData(mCubeBanner, 2);
+        initData(mAccordionBanner, 3);
+        initData(mFlipBanner, 4);
+        initData(mRotateBanner, 5);
+        initData(mAlphaBanner, 6);
+        initData(mZoomFadeBanner, 3);
+        initData(mFadeBanner, 4);
+        initData(mZoomCenterBanner, 5);
+        initData(mZoomBanner, 6);
+        initData(mStackBanner, 3);
+        initData(mZoomStackBanner, 4);
+        initData(mDepthBanner, 5);
     }
 
-    private void loadData(final BGABanner banner, int count) {
+    private void initData(final BGABanner banner, int count) {
         mEngine.fetchItemsWithItemCount(count).enqueue(new Callback<BannerModel>() {
             @Override
             public void onResponse(Call<BannerModel> call, Response<BannerModel> response) {
@@ -230,16 +230,16 @@ public class BannerFragment extends Fragment implements BGABanner.OnItemClickLis
                 Toast.makeText(App.getInstance(), "广告当前索引位置为 " + mDefaultBanner.getCurrentItem(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tv_main_load_one_item:
-                loadData(mDefaultBanner, 1);
+                initData(mDefaultBanner, 1);
                 break;
             case R.id.tv_main_load_two_item:
-                loadData(mDefaultBanner, 2);
+                initData(mDefaultBanner, 2);
                 break;
             case R.id.tv_main_load_three_item:
-                loadData(mDefaultBanner, 3);
+                initData(mDefaultBanner, 3);
                 break;
             case R.id.tv_main_load_five_item:
-                loadData(mDefaultBanner, 5);
+                initData(mDefaultBanner, 5);
                 break;
             case R.id.tv_main_cube:
                 mDefaultBanner.setTransitionEffect(TransitionEffect.Cube);

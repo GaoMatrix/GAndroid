@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.gao.android.util.ActivityManagerUtils;
 
+
 public abstract class BaseActivity extends Activity {
 
     @Override

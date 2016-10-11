@@ -2,7 +2,7 @@ package com.gao.android.util;
 
 import android.content.Context;
 import android.telephony.TelephonyManager;
-import com.litesuits.android.log.Log;
+import android.util.Log;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -213,77 +213,4 @@ public class TelephoneUtil {
         return teleInfo;
     }
 
-    /**
-     * Qualcomm Phone.
-     * 获取 高通 神机的双卡 IMSI、IMSI 信息
-     */
-    public static TeleInfo getQualcommTeleInfo(Context context) {
-        TeleInfo teleInfo = new TeleInfo();
-        try {
-            TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-            Class<?> simTMclass = Class.forName("android.telephony.MSimTelephonyManager");
-            Object sim = context.getSystemService("phone_msim");
-            int simId_1 = 0;
-            int simId_2 = 1;
-
-            Method getSubscriberId = simTMclass.getMethod("getSubscriberId", int.class);
-            String imsi_1 = (String) getSubscriberId.invoke(sim, simId_1);
-            String imsi_2 = (String) getSubscriberId.invoke(sim, simId_2);
-            teleInfo.imsi_1 = imsi_1;
-            teleInfo.imsi_2 = imsi_2;
-
-            Method getDeviceId = simTMclass.getMethod("getDeviceId", int.class);
-            String imei_1 = (String) getDeviceId.invoke(sim, simId_1);
-            String imei_2 = (String) getDeviceId.invoke(sim, simId_2);
-            teleInfo.imei_1 = imei_1;
-            teleInfo.imei_2 = imei_2;
-
-            Method getDataState = simTMclass.getMethod("getDataState");
-            int phoneType_1 = tm.getDataState();
-            int phoneType_2 = (Integer) getDataState.invoke(sim);
-            teleInfo.phoneType_1 = phoneType_1;
-            teleInfo.phoneType_2 = phoneType_2;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        Log.i(TAG, "Qualcomm: " + teleInfo);
-        return teleInfo;
-    }
-
-    /**
-     * Spreadtrum Phone.
-     *
-     * 获取 展讯 神机的双卡 IMSI、IMSI 信息
-     */
-    public static TeleInfo getSpreadtrumTeleInfo(Context context) {
-        TeleInfo teleInfo = new TeleInfo();
-        try {
-
-            TelephonyManager tm1 = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-            String imsi_1 = tm1.getSubscriberId();
-            String imei_1 = tm1.getDeviceId();
-            int phoneType_1 = tm1.getPhoneType();
-            teleInfo.imsi_1 = imsi_1;
-            teleInfo.imei_1 = imei_1;
-            teleInfo.phoneType_1 = phoneType_1;
-
-            Class<?> phoneFactory = Class.forName("com.android.internal.telephony.PhoneFactory");
-            Method getServiceName = phoneFactory.getMethod("getServiceName", String.class, int.class);
-            getServiceName.setAccessible(true);
-            String spreadTmService = (String) getServiceName.invoke(phoneFactory, Context.TELEPHONY_SERVICE, 1);
-
-            TelephonyManager tm2 = (TelephonyManager) context.getSystemService(spreadTmService);
-            String imsi_2 = tm2.getSubscriberId();
-            String imei_2 = tm2.getDeviceId();
-            int phoneType_2 = tm2.getPhoneType();
-            teleInfo.imsi_2 = imsi_2;
-            teleInfo.imei_2 = imei_2;
-            teleInfo.phoneType_2 = phoneType_2;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        Log.i(TAG, "Spreadtrum: " + teleInfo);
-        return teleInfo;
-    }
 }

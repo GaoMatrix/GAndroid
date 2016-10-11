@@ -57,7 +57,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements OnTabSelectListener {
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private final String[] mTitles = {
-            "Banner", "热门", "iOS", "Android"
+            "Banner", "RecycleView", "iOS", "Android"
             , "前端", "后端", "设计", "工具资源"
     };
     private MyPagerAdapter mAdapter;
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements OnTabSelectListen
 
         initToolbar();
         mFragments.add(BannerFragment.getInstance());
-        for (int i = 1; i < mTitles.length; i++) {
+        for (int i = 2; i < mTitles.length; i++) {
             mFragments.add(SimpleCardFragment.getInstance(mTitles[i]));
         }
         ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);

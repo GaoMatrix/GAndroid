@@ -41,7 +41,7 @@ public class BannerActivity extends Activity implements BGABanner.OnItemClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_banner);
+        setContentView(R.layout.fragment_banner);
 
         mEngine = App.getInstance().getEngine();
 
