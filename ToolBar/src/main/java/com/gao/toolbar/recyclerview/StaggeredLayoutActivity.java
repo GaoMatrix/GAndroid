@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -17,7 +18,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.gao.android.util.ListUtils;
@@ -41,7 +41,7 @@ import retrofit2.Call;
 /**
  * Created by GaoMatrix on 2016/10/11.
  */
-public class LinearLayoutActivity extends AppCompatActivity {
+public class StaggeredLayoutActivity extends AppCompatActivity {
     private static final String TAG = "LinearLayoutActivity";
 
     @BindView(R.id.toolbar)
@@ -59,7 +59,8 @@ public class LinearLayoutActivity extends AppCompatActivity {
     private int mPage = 1;
     private List<Meizi> mMeiziList;
 
-    private LinearLayoutManager mLinearLayoutManager = null;
+    // TODO: 2016/10/12 没有实现流逝效果
+    private StaggeredGridLayoutManager mLayoutManager = null;
     private ItemTouchHelper mItemTouchHelper;
     private MyAdapter mMyAdapter;
     private int mLastVisibleItem;
@@ -79,8 +80,8 @@ public class LinearLayoutActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        mLinearLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLinearLayoutManager);
+        mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
         mSwipeRefreshLayout.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
     }
@@ -133,8 +134,10 @@ public class LinearLayoutActivity extends AppCompatActivity {
         mItemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.Callback() {
             @Override
             public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-                int dragFlags = 0, swipeFlags = 0;
-                if (recyclerView.getLayoutManager() instanceof StaggeredGridLayoutManager) {
+                int dragFlags = 0;
+                int swipeFlags = 0;
+                if (recyclerView.getLayoutManager() instanceof StaggeredGridLayoutManager
+                        || recyclerView.getLayoutManager() instanceof GridLayoutManager) {
                     dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
                 } else if (recyclerView.getLayoutManager() instanceof LinearLayoutManager) {
                     dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
@@ -174,7 +177,7 @@ public class LinearLayoutActivity extends AppCompatActivity {
 
             @Override
             public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-                viewHolder.itemView.setAlpha(1 - Math.abs(dX) / ScreenUtils.getScreenWidth(LinearLayoutActivity.this));
+                viewHolder.itemView.setAlpha(1 - Math.abs(dX) / ScreenUtils.getScreenWidth(StaggeredLayoutActivity.this));
                 super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
             }
         });
@@ -188,8 +191,8 @@ public class LinearLayoutActivity extends AppCompatActivity {
                 // 2时：随用户的操作，屏幕上产生的惯性滑动；
                 //滑动状态停止并且剩余两个item时自动加载
                 if (newState == RecyclerView.SCROLL_STATE_IDLE
-                        && mLastVisibleItem + 2 >= mLinearLayoutManager.getItemCount()) {
-                    mPage ++;
+                        && mLastVisibleItem + 2 >= mLayoutManager.getItemCount()) {
+                    mPage++;
                     getData(mPage);
                 }
             }
@@ -197,8 +200,8 @@ public class LinearLayoutActivity extends AppCompatActivity {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                // 获取加载的最后一个可见视图在适配器的位置。
-                mLastVisibleItem = mLinearLayoutManager.findLastVisibleItemPosition();
+                int[] positions= mLayoutManager.findLastVisibleItemPositions(null);
+                mLastVisibleItem = Math.max(positions[0],positions[1]);
             }
         });
     }
@@ -208,7 +211,7 @@ public class LinearLayoutActivity extends AppCompatActivity {
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(LinearLayoutActivity.this).inflate(R.layout.item_activity_linear, parent, false);
+            View view = LayoutInflater.from(StaggeredLayoutActivity.this).inflate(R.layout.item_activity_grid, parent, false);
             MyViewHolder holder = new MyViewHolder(view);
             view.setOnClickListener(this);
             return holder;
@@ -216,8 +219,7 @@ public class LinearLayoutActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
-            holder.textView.setText(mMeiziList.get(position).getDesc());
-            Glide.with(LinearLayoutActivity.this).load(mMeiziList.get(position).getUrl()).into(holder.imageView);
+            Glide.with(StaggeredLayoutActivity.this).load(mMeiziList.get(position).getUrl()).into(holder.imageView);
         }
 
         @Override
@@ -251,12 +253,10 @@ public class LinearLayoutActivity extends AppCompatActivity {
 
         class MyViewHolder extends RecyclerView.ViewHolder {
             private ImageView imageView;
-            private TextView textView;
 
             public MyViewHolder(View view) {
                 super(view);
                 imageView = (ImageView) view.findViewById(R.id.imageView);
-                textView = (TextView) view.findViewById(R.id.textView);
             }
         }
     }

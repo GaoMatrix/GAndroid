@@ -19,10 +19,8 @@ import butterknife.OnClick;
  * Created by GaoMatrix on 2016/10/11.
  */
 public class RecyclerViewFragment extends Fragment {
-    @BindView(R.id.linear1)
-    Button mLinear1;
-    @BindView(R.id.liner2)
-    Button mLiner2;
+    @BindView(R.id.linear)
+    Button mLinear;
     @BindView(R.id.grid)
     Button mGrid;
     @BindView(R.id.staggered)
@@ -69,18 +67,20 @@ public class RecyclerViewFragment extends Fragment {
     private void initData() {
     }
 
-    @OnClick({R.id.linear1, R.id.liner2, R.id.grid, R.id.staggered})
+    @OnClick({R.id.linear, R.id.grid, R.id.staggered})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.linear1:
-                Intent linear1Intent = new Intent(getActivity(), LinearLayoutActivity.class);
-                startActivity(linear1Intent);
-                break;
-            case R.id.liner2:
+            case R.id.linear:
+                Intent linearIntent = new Intent(getActivity(), LinearLayoutActivity.class);
+                startActivity(linearIntent);
                 break;
             case R.id.grid:
+                Intent gridIntent = new Intent(getActivity(), GridLayoutActivity.class);
+                startActivity(gridIntent);
                 break;
             case R.id.staggered:
+                Intent staggeredIntent = new Intent(getActivity(), StaggeredLayoutActivity.class);
+                startActivity(staggeredIntent);
                 break;
         }
     }

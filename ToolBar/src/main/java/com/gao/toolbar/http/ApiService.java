@@ -16,7 +16,7 @@ public interface ApiService {
     /**
      * Base url.
      */
-    String API_SERVER_URL = " http://gank.io/api/data/福利/10/";
+    String API_SERVER_URL = "http://gank.io/api/data/福利/10/";
 
     @GET("{page}")
     Call<HttpResponseMeizi<List<Meizi>>> getMeizi(@Path("page") int page);
