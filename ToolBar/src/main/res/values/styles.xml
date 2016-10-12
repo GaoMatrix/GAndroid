@@ -7,6 +7,8 @@
         <item name="searchViewStyle">@style/AppTheme.SearchView</item>
     </style>
 
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="Widget.MyApp.ActionBar" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">@color/primary</item>
         <item name="theme">@style/ThemeOverlay.MyApp.ActionBar</item>

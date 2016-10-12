@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".banner.BannerActivity"></activity>
+        <activity android:name=".recyclerview.LinearLayoutActivity"></activity>
         <activity android:name=".MainActivity"></activity>
     </application>
 

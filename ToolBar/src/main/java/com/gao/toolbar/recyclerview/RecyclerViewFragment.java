@@ -1,5 +1,6 @@
 package com.gao.toolbar.recyclerview;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -26,6 +27,11 @@ public class RecyclerViewFragment extends Fragment {
     Button mGrid;
     @BindView(R.id.staggered)
     Button mStaggered;
+
+    public static RecyclerViewFragment getInstance() {
+        RecyclerViewFragment recyclerViewFragment = new RecyclerViewFragment();
+        return recyclerViewFragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,6 +73,8 @@ public class RecyclerViewFragment extends Fragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.linear1:
+                Intent linear1Intent = new Intent(getActivity(), LinearLayoutActivity.class);
+                startActivity(linear1Intent);
                 break;
             case R.id.liner2:
                 break;

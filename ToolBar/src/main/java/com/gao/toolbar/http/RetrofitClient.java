@@ -16,7 +16,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by GaoMatrix on 2016/9/5.
  */
 public class RetrofitClient {
-    public static final String BASE_URL = "https://api.douban.com/v2/movie/";
 
     private static final int DEFAULT_TIMEOUT = 5;
 
@@ -39,7 +38,7 @@ public class RetrofitClient {
                 .client(builder.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .baseUrl(BASE_URL)
+                .baseUrl(ApiService.API_SERVER_URL)
                 .build();
 
         return sRetrofit;

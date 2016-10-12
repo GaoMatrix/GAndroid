@@ -35,7 +35,7 @@ public class HttpResponse<T> {
 
     @Override
     public String toString() {
-        return "HttpResponse{" +
+        return "HttpResponseMeizi{" +
                 "code=" + code +
                 ", message='" + message + '\'' +
                 ", data=" + data +
