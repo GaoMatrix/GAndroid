@@ -22,7 +22,16 @@
         <activity android:name=".recyclerview.LinearLayoutActivity"></activity>
         <activity android:name=".recyclerview.GridLayoutActivity"></activity>
         <activity android:name=".recyclerview.StaggeredLayoutActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".crash.CustomErrorActivity">
+            <intent-filter>
+                <action android:name="cat.ereza.customactivityoncrash.ERROR" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="cat.ereza.customactivityoncrash.RESTART" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

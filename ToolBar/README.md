@@ -57,6 +57,24 @@ https://github.com/mikepenz/MaterialDrawer
 ### recyclerview-animators
 An Android Animation library which easily add itemanimator to RecyclerView items.
 https://github.com/wasabeef/recyclerview-animators
+todo:在note3上面没有效果，模拟器上是可以的。
+
+
+### CustomActivityOnCrash
+Android library that allows launching a custom activity when your app crashes, instead of showing the hated "Unfortunately, X has stopped" dialog.
+https://github.com/Ereza/CustomActivityOnCrash
+```java
+<intent-filter>
+    <action android:name="cat.ereza.customactivityoncrash.ERROR" />
+</intent-filter>
+```
+可以指定出现Exception时候跳转的错误页面的Activity,不指定会使用library中默认的Activity。
+```java
+<intent-filter>
+    <action android:name="cat.ereza.customactivityoncrash.RESTART" />
+</intent-filter>
+```
+可以指定出现Exception后restart的Activity，如果不指定restart的是主Activity。
 
 
 
