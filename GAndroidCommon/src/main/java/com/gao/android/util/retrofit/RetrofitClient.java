@@ -1,4 +1,4 @@
-package com.gao.toolbar.http;
+package com.gao.android.util.retrofit;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 
@@ -54,4 +54,5 @@ public class RetrofitClient {
     public static <T> T getClient(Class<? extends T> type) {
         return sRetrofit.create(type);
     }
+
 }

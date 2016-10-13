@@ -23,10 +23,10 @@ import com.bumptech.glide.Glide;
 import com.gao.android.util.ListUtils;
 import com.gao.android.util.ScreenUtils;
 import com.gao.android.util.SnackbarUtil;
+import com.gao.android.util.retrofit.RetrofitClient;
 import com.gao.toolbar.R;
-import com.gao.toolbar.http.ApiService;
-import com.gao.toolbar.http.RetrofitClient;
 import com.gao.toolbar.recyclerview.entity.Meizi;
+import com.gao.toolbar.recyclerview.http.ApiMeiziService;
 import com.gao.toolbar.recyclerview.http.HttpCallBackMeizi;
 import com.gao.toolbar.recyclerview.http.HttpResponseMeizi;
 import com.orhanobut.logger.Logger;
@@ -88,7 +88,7 @@ public class StaggeredLayoutActivity extends AppCompatActivity {
 
     private void getData(int page) {
         mSwipeRefreshLayout.setRefreshing(true);
-        Call<HttpResponseMeizi<List<Meizi>>> callMeizi = RetrofitClient.getClient(ApiService.class).getMeizi(page);
+        Call<HttpResponseMeizi<List<Meizi>>> callMeizi = RetrofitClient.getClient(ApiMeiziService.class).getMeizi(page);
         callMeizi.enqueue(new HttpCallBackMeizi<HttpResponseMeizi<List<Meizi>>>() {
             @Override
             public void onSuccess(HttpResponseMeizi<List<Meizi>> listHttpResponseMeizi) {

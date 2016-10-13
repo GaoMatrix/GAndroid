@@ -1,4 +1,4 @@
-package com.gao.toolbar.http;
+package com.gao.android.util.retrofit;
 
 import android.util.Log;
 
@@ -13,8 +13,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public abstract class HttpCallBack<T extends HttpResponse> implements Callback<T> {
-    private String TAG = HttpCallBack.class.getSimpleName();
+public abstract class HttpCallback<T extends HttpResponse> implements Callback<T> {
+    private String TAG = HttpCallback.class.getSimpleName();
     private static Gson gson = new Gson(); //it is ok ?
 
     @Override

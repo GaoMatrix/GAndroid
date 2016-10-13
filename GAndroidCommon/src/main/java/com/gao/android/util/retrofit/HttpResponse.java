@@ -1,4 +1,4 @@
-package com.gao.toolbar.http;
+package com.gao.android.util.retrofit;
 
 public class HttpResponse<T> {
     /**

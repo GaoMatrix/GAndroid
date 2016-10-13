@@ -1,4 +1,4 @@
-package com.gao.toolbar.http;
+package com.gao.toolbar.recyclerview.http;
 
 import com.gao.toolbar.recyclerview.entity.Meizi;
 import com.gao.toolbar.recyclerview.http.HttpResponseMeizi;
@@ -12,7 +12,7 @@ import retrofit2.http.Path;
 /**
  * Created by GaoMatrix on 2016/9/5.
  */
-public interface ApiService {
+public interface ApiMeiziService {
     /**
      * Base url.
      */
