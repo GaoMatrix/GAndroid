@@ -23,7 +23,7 @@ import com.bumptech.glide.Glide;
 import com.gao.android.util.ListUtils;
 import com.gao.android.util.ScreenUtils;
 import com.gao.android.util.SnackbarUtil;
-import com.gao.android.util.retrofit.RetrofitClient;
+import com.gao.android.retrofit.RetrofitClient;
 import com.gao.toolbar.R;
 import com.gao.toolbar.recyclerview.entity.Meizi;
 import com.gao.toolbar.recyclerview.http.ApiMeiziService;

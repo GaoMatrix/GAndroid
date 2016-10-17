@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.gao.android.util.diskcache.disklrucache;
+package com.gao.android.diskcache.disklrucache;
 
 import java.io.BufferedWriter;
 import java.io.Closeable;

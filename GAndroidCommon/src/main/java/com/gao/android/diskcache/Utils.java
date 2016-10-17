@@ -1,4 +1,4 @@
-package com.gao.android.util.diskcache;
+package com.gao.android.diskcache;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;

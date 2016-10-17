@@ -1,4 +1,4 @@
-package com.gao.android.util.http;
+package com.gao.android.http;
 
 /**
  * HttpConstants<br/>

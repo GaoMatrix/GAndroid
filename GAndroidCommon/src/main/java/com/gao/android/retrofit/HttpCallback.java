@@ -1,4 +1,4 @@
-package com.gao.android.util.retrofit;
+package com.gao.android.retrofit;
 
 import android.util.Log;
 

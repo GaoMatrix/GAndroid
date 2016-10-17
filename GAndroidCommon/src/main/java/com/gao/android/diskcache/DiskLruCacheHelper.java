@@ -1,4 +1,4 @@
-package com.gao.android.util.diskcache;
+package com.gao.android.diskcache;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -6,8 +6,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Environment;
 import android.util.Log;
 
-import com.gao.android.util.diskcache.disklrucache.DiskLruCache;
-import com.gao.android.util.diskcache.disklrucache.Util;
+import com.gao.android.diskcache.disklrucache.DiskLruCache;
+import com.gao.android.diskcache.disklrucache.Util;
 
 import org.json.JSONArray;
 import org.json.JSONException;

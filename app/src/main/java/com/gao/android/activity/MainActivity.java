@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.gao.android.R;
 import com.gao.android.ottotest.LocationActivity;
@@ -24,6 +25,9 @@ public class MainActivity extends BaseActivity {
     Button ormlite;
     @BindView(R.id.otto)
     Button mOtto;
+
+    /**记录上一次按下back按键的时间**/
+    private long mLastEixtTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,16 @@ public class MainActivity extends BaseActivity {
             case R.id.otto:
                 startActivity(new Intent(this, LocationActivity.class));
                 break;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (System.currentTimeMillis() - mLastEixtTime > 2000) {
+            Toast.makeText(MainActivity.this, "再按一下退出", Toast.LENGTH_SHORT).show();
+            mLastEixtTime = System.currentTimeMillis();
+        } else {
+            this.finish();
         }
     }
 }

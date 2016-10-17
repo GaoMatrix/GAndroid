@@ -6,7 +6,7 @@ import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
-import com.gao.android.util.http.HttpUtils;
+import com.gao.android.http.HttpUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
