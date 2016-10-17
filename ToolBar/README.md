@@ -77,5 +77,11 @@ https://github.com/Ereza/CustomActivityOnCrash
 可以指定出现Exception后restart的Activity，如果不指定restart的是主Activity。
 
 
+### TextDrawable
+https://github.com/amulyakhare/TextDrawable
+简单的说，TextDrawable的目的，**是将一个普通的文本变形为一个“文本”的drawable**，
+一旦成为drawable，那么接下来开发者可以自由使用的空间就很大了，比如可以随意的将此drawable作为源设置到ImageView里面等等。
+
+
 
 

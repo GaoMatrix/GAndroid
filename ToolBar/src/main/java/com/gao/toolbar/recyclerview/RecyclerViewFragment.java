@@ -39,7 +39,6 @@ public class RecyclerViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recyclerview, null);
-        initView(view);
         ButterKnife.bind(this, view);
         return view;
     }
@@ -47,24 +46,11 @@ public class RecyclerViewFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initListener();
-        initData();
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-    }
-
-    private void initView(View view) {
-
-    }
-
-    private void initListener() {
-
-    }
-
-    private void initData() {
     }
 
     @OnClick({R.id.linear, R.id.grid, R.id.staggered})

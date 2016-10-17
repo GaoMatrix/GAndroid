@@ -26,6 +26,7 @@ import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.gao.toolbar.banner.BannerFragment;
 import com.gao.toolbar.crash.CrashFragment;
 import com.gao.toolbar.recyclerview.RecyclerViewFragment;
+import com.gao.toolbar.view.ViewFragment;
 import com.mikepenz.fastadapter.utils.RecyclerViewCacheUtil;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
@@ -59,7 +60,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements OnTabSelectListener {
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private final String[] mTitles = {
-            "Banner", "RecycleView", "Crash", "Android"
+            "Banner", "RecycleView", "Crash", "View"
             , "前端", "后端", "设计", "工具资源"
     };
     private MyPagerAdapter mAdapter;
@@ -74,7 +75,8 @@ public class MainActivity extends AppCompatActivity implements OnTabSelectListen
         mFragments.add(BannerFragment.getInstance());
         mFragments.add(RecyclerViewFragment.getInstance());
         mFragments.add(CrashFragment.getInstance());
-        for (int i = 3; i < mTitles.length; i++) {
+        mFragments.add(ViewFragment.getInstance());
+        for (int i = 4; i < mTitles.length; i++) {
             mFragments.add(SimpleCardFragment.getInstance(mTitles[i]));
         }
         ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
