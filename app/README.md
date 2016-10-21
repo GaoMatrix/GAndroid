@@ -19,6 +19,8 @@ Type-safe HTTP client for Android and Java by Square, Inc.
 
 ### [RxJava](https://github.com/ReactiveX/RxJava)
 RxJava – Reactive Extensions for the JVM – a library for composing asynchronous and event-based programs using observable sequences for the Java VM.
+学习资料：
+https://github.com/rengwuxian/RxJavaSamples
 
 ### [GreenDAO](https://github.com/greenrobot/greenDAO)
 greenDAO is a light & fast ORM solution for Android that maps objects to SQLite databases. 

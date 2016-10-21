@@ -32,10 +32,15 @@ android {
         }
 
         release {
-            storeFile file("maoyan.keystore")
-            storePassword "xs2015"
-            keyAlias "maoyan"
-            keyPassword "xs2015"
+            try {
+                // gradle.properties中的密码不加入版本库中
+                storeFile file("maoyan.keystore")
+                storePassword KEYSTORE_PASSWORD
+                keyAlias "maoyan"
+                keyPassword KEY_PASSWORD
+            } catch (ex) {
+                throw new InvalidUserDataException("You should define KEYSTORE_PASSWORD and KEY_PASSWORD in gradle.properties.")
+            }
         }
     }
 
