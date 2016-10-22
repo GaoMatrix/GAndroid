@@ -1,1 +1,1 @@
-include ':app', ':BottomTablayout', ':ToolBar', ':swipebacklayoutlibrary', ':UmengShare', ':Update', ':MaterialPreference', ':GAndroidCommon', ':RxJavaRetrofit'
+include ':app', ':BottomTablayout', ':ToolBar', ':swipebacklayoutlibrary', ':UmengShare', ':Update',  ':GAndroidCommon', ':RxJavaRetrofit'
