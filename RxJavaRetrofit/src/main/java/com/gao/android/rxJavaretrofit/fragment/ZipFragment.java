@@ -78,10 +78,11 @@ public class ZipFragment extends Fragment {
     private void getData() {
         mSwipeRefreshLayout.setRefreshing(true);
         unSubscribe();
+        // 将不同接口并行请求获取到的数据糅合在一起后再处理。
         mSubscription = rx.Observable.zip(
                 Network.getGankApi().getBeautyList(100, 1).map(GankBeautyResultToGankBeauty.getInstance()),
                 Network.getZhuangbiApi().search("装逼"),
-                new Func2<List<GankBeauty>, List<ZhuangbiImage>, List<Item>>() {
+                new Func2<List<GankBeauty>, List<ZhuangbiImage>, /**返回值*/List<Item>>() {
                     @Override
                     public List<Item> call(List<GankBeauty> gankBeauties, List<ZhuangbiImage> zhuangbiImages) {
                         List<Item> itemList = new ArrayList<Item>();

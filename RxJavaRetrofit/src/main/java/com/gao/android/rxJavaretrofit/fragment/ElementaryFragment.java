@@ -99,6 +99,7 @@ public class ElementaryFragment extends Fragment {
     }
 
     private void search(String key) {
+        // 实现最基本的网络请求和结果处理。
         mSubscription = Network.getZhuangbiApi()
                 .search(key)
                 .subscribeOn(Schedulers.io())

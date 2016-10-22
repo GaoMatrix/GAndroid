@@ -1,5 +1,6 @@
 package com.gao.android.rxjavaretrofit.network;
 
+import com.gao.android.rxjavaretrofit.network.api.FakeApi;
 import com.gao.android.rxjavaretrofit.network.api.GankApi;
 import com.gao.android.rxjavaretrofit.network.api.ZhuangbiAPi;
 
@@ -17,6 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Network {
     private static ZhuangbiAPi sZhuangbiApi;
     private static GankApi sGankApi;
+    private static FakeApi sFakeApi;
     private static Converter.Factory sGsonConverterFactory = GsonConverterFactory.create();
     private static CallAdapter.Factory sRxJavaCallAdapterFactory = RxJavaCallAdapterFactory.create();
 
@@ -57,6 +59,13 @@ public class Network {
             sGankApi = retrofit.create(GankApi.class);
         }
         return sGankApi;
+    }
+
+    public static FakeApi getFakeApi() {
+        if (sFakeApi == null) {
+            sFakeApi = new FakeApi();
+        }
+        return sFakeApi;
     }
 
 }

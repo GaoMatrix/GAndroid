@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.gao.android.rxjavaretrofit.fragment.ElementaryFragment;
+import com.gao.android.rxjavaretrofit.fragment.FakeFragmnet;
 import com.gao.android.rxjavaretrofit.fragment.MapFragment;
 import com.gao.android.rxjavaretrofit.fragment.ZipFragment;
 
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     case 2:
                         return new ZipFragment();
                     case 3:
-                        return new ElementaryFragment();
+                        return new FakeFragmnet();
                     case 4:
                         return new ElementaryFragment();
                     case 5:

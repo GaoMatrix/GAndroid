@@ -106,6 +106,7 @@ public class MapFragment extends Fragment {
     private void loadPage(int page) {
         mSwipeRefreshLayout.setRefreshing(true);
         unSubscribe();
+        // 把返回的数据转换成更方便处理的格式再交给 Observer。
         mSubscription = Network.getGankApi()
                 .getBeautyList(10, page)
                 .map(GankBeautyResultToGankBeauty.getInstance())
