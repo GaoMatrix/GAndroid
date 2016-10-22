@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.gao.android.rxjavaretrofit.fragment.ElementaryFragment;
 import com.gao.android.rxjavaretrofit.fragment.MapFragment;
+import com.gao.android.rxjavaretrofit.fragment.ZipFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         return new MapFragment();
                     case 2:
-                        return new ElementaryFragment();
+                        return new ZipFragment();
                     case 3:
                         return new ElementaryFragment();
                     case 4:
