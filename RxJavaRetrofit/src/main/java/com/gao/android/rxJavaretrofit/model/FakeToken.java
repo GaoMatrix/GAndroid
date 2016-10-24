@@ -7,6 +7,14 @@ public class FakeToken {
     private String token;
     private boolean expired;
 
+    public FakeToken() {
+
+    }
+
+    public FakeToken(boolean expired) {
+        this.expired = expired;
+    }
+
     public String getToken() {
         return token;
     }

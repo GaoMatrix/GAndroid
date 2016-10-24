@@ -31,7 +31,7 @@ import rx.schedulers.Schedulers;
 /**
  * Created by GaoMatrix on 2016/10/22.
  */
-public class FakeFragmnet extends Fragment {
+public class TokenFragmnet extends Fragment {
 
     @BindView(R.id.dataTextView)
     TextView mDataTextView;
@@ -45,7 +45,7 @@ public class FakeFragmnet extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_fake, container, false);
+        View view = inflater.inflate(R.layout.fragment_token, container, false);
         ButterKnife.bind(this, view);
         mSwipeRefreshLayout.setColorSchemeColors(Color.BLUE, Color.GREEN, Color.RED, Color.YELLOW);
         mSwipeRefreshLayout.setEnabled(false);
@@ -54,9 +54,16 @@ public class FakeFragmnet extends Fragment {
 
     @OnClick(R.id.getDataButton)
     public void onClick() {
+        getData();
+    }
+
+    private void getData() {
         mSwipeRefreshLayout.setRefreshing(true);
         unSubscribe();
         final FakeApi fakeApi = Network.getFakeApi();
+        // 需要先请求 token 再访问的接口，
+        // 使用 flatMap() 将 token 的请求和实际数据的请求连贯地串起来，
+        // 而不必写嵌套的 Callback 结构。
         mSubscription = fakeApi.getFakeToken("fake_auth_code")
                 .flatMap(new Func1<FakeToken, Observable<FakeThing>>() {
                     @Override
