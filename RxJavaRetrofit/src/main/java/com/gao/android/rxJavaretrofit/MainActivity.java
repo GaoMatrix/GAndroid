@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import com.gao.android.rxjavaretrofit.fragment.CacheFragment;
 import com.gao.android.rxjavaretrofit.fragment.ElementaryFragment;
 import com.gao.android.rxjavaretrofit.fragment.TokenAdvancedFragment;
 import com.gao.android.rxjavaretrofit.fragment.TokenFragmnet;
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     case 4:
                         return new TokenAdvancedFragment();
                     case 5:
-                        return new ElementaryFragment();
+                        return new CacheFragment();
                     default:
                         return new ElementaryFragment();
                 }

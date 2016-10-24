@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/loadingTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/getDataButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加载"/>
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/clearMemoryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="清空内存缓存"/>
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/clearMemoryDiskButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="清空内存和硬盘缓存"/>
+    </LinearLayout>
+</LinearLayout>
